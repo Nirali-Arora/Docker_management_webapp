@@ -1,0 +1,109 @@
+
+    <head>
+        <title>DOCKER HOME</title>
+    </head>
+    <style>
+        body{
+            background-image: url('docker-cloud-twitter-card.png');
+            background-size: cover;
+        }
+
+
+            #a{
+                font-family: fantasy;
+                font-weight: bold;
+                font-size: 40px;
+                text-align: center;
+                color: white;
+                text-shadow: 3px 6px rgb(231, 12, 12);
+            }
+
+            #b{
+
+                margin-left: 620px;
+                color: white;
+                text-shadow: 1px 2px rgb(231, 12, 12);
+                font-family: fantasy;
+                font-size: 25px;
+                border-top: 2px solid rgb(255, 0, 0);
+                border-bottom: 2px solid rgb(255, 0, 0);
+                border-left: 12px solid rgb(27, 26, 26);
+                border-right: 12px solid rgb(27, 26, 26);
+                border-radius: 12px 12px;
+                background-color: rgb(27, 26, 26);
+
+            }
+
+            #b:hover{
+                box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0);
+            }
+            #c{
+                color: white;
+                text-align: center;
+                font-size: 15px;
+                font-family: fantasy;
+                border-radius: 30px;
+                padding: 8px;
+                border-top: 2px solid rgb(255, 0, 0);
+                border-bottom: 2px solid rgb(255, 0, 0);
+                border-left: 12px solid rgb(27, 26, 26);
+                border-right: 12px solid rgb(27, 26, 26);
+                border-radius: 12px 12px;
+                background-color: rgb(27, 26, 26);
+
+            }
+            #c:hover{
+                text-decoration-style: double;
+                text-shadow: 1px 2px rgb(231, 12, 12);
+
+            }
+            #d{
+                text-align:center;
+                border-radius: 15px;
+
+                overflow: hidden;
+                position: relative;
+                backdrop-filter: blur(20px) saturate(100%) contrast(90%) brightness(130%);
+                margin-left: 200px;
+                margin-right: 200px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+    </style>
+    <body>
+
+
+
+        </div>
+
+        <div>
+
+              <p id=a>Enter Docker Command</p>
+            </div>
+        <div>
+            <input id=b type="text" />
+        </div>
+        <br>
+        <br>
+        <div style="text-align: center;" >
+        <button id=c type="button" onclick="lw()"> CLICK ME </button>
+        </div>
+        <pre id=d>OUTPUT WILL BE DISPLAYED HERE!!!
+
+        </pre>
+
+       <script>
+           function lw(){
+               var i = document.getElementById("b").value
+               var xhr = new XMLHttpRequest();
+               xhr.open("GET","http://192.168.43.213/cgi-bin/lw.py?x=" + i,true);
+               xhr.send();
+               xhr.onload=function(){
+               var output= xhr.responseText;
+               document.getElementById("d").innerHTML=output;
+            };
+
+
+           }
+       </script>
